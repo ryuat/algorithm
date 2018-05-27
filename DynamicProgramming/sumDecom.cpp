@@ -23,14 +23,14 @@ int main(void){
     
     for(int i=2;i<=k;i++){
         for(int j=0;j<=n;j++){
-            for(int c=0; c<=j;c++){
-                d[i][j] += d[i-1][j-c]%mod;
+            for(int l=0; l<=j;l++){
+                d[i][j] += d[i-1][j-l]%mod;
             }
         }
     }
    
     cout << d[k][n]%mod<<endl;
-    
+
     return 0;
 }
 

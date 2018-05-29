@@ -1,32 +1,40 @@
 /*
- baekjoon 11005 ì§„ë²•ë³€í™˜1
- n/b ... r
- -> reverse r
- */
-
-#include <cstring>
+baekjoon 2745 Áø¹ıº¯È¯ 1
+BÁø¼ö NÀ» 10Áø¹ıÀ¸·Î º¯È¯
+*/
 #include <iostream>
+#include <string>
 #include <algorithm>
 
 using namespace std;
 
-int main(){
-    string ans = "";
-    int n, b, r;
-    
-    cin >> n >> b;
-    
-    while(n>0){
-        r = n%b;
-        if(r<10)
-            ans += r + '0'; // rì„ ë¬¸ìí˜• ìˆ«ìë¡œ ë³€í˜• í›„ ansë¬¸ìì—´ì— ë¶™ì„
-        else
-            ans += r - 10 + 'A'; // 10ë¶€í„° ë¬¸ì 'A'ë¡œ ì¹˜í™˜í•˜ì—¬ ansë¬¸ìì—´ì— ë¶™ì„
-        n = n/b;
-    }
-    
-    reverse(ans.begin(), ans.end()); // loopì—ì„œ ì €ì¥ëœ ë‚˜ë¨¸ì§€ ë°°ì—´ì„ ë°˜ëŒ€ë¡œ ì¬ì €ì¥
-    
-    cout << ans << endl;
-    return 0;
+int main(void) {
+
+	string s; // string Çü ¼ıÀÚ ÀÔ·Â
+ 	int b; // bÁø¹ı
+	cin >> s >> b;
+	
+	int n = s.size(); // string size, ÀÚ¸®¼ö
+	int d = 0; // ½ÊÁø¹ı º¯È¯ °á°ú
+
+	for (int i = 0; i < n; i++) {
+		int x;
+
+		if (s[i] - '0' >= 17) // s[i] = 'A'ÀÏ °æ¿ì 'A'(65) - '0'(48) = 17. Áï 17ÀÌ»óÀÌ¸é A..Z¶ó°í ÆÇ´Ü  
+			x = s[i] - '7'; // 'A'=>10À¸·Î ¸ÅÇÎÇÏ°Ô À§ÇØ ¾Æ½ºÅ°°ªÀÌ 15ÀÎ '7'À» »©ÁØ´Ù.
+		else
+			x = s[i] - '0'; // ±×·¸Áö ¾ÊÀº °æ¿ì, ±×³É '0'(48)À» »©ÁØ´Ù.
+
+
+		if (i == n - 1) { // ¸¶Áö¸· ÀÚ¸®´Â b¸¦ °öÇÏÁö ¾Ê°í ´õÇÏ±â¸¸ ÇÑ ÈÄ ·çÇÁ Á¾·á
+			d = d + x; 
+			break;
+		}
+
+		d = (d + x) * b; // Ã¹Â°ÀÚ¸® ºÎÅÍ b¸¦ ´©ÀûÇÏ¿© °öÇÑ´Ù. ¿¹) 4¹øÂ° ÀÚ¸®ÀÏ °æ¿ì (d+x)*b*b*b
+	}
+
+	cout << d << endl;
+	
+	return 0;
 }

@@ -1,7 +1,7 @@
-/* 
-baekjoon 1934 ÃÖ¼Ò°ø¹è¼ö 
-lcm = a*b/gcd
-*/
+/*
+ baekjoon 1934 ìµœì†Œê³µë°°ìˆ˜
+ lcm = a*b/gcd
+ */
 #include <iostream>
 #include <string>
 
@@ -9,21 +9,21 @@ using namespace std;
 
 int gcd(int a, int b)
 {
-	if (b == 0)
-		return a;
-	return gcd(b, a%b);
+    if (b == 0)
+        return a;
+    return gcd(b, a%b);
 }
 int main(void) {
+    
+    int n;
+    cin >> n;
+    while (n--) {
+        int a, b, g;
+        cin >> a; cin >> b;
+        
+        g = gcd(a, b);
+        
+        cout << a*b/ g << endl;
+    }
+    return 0;
 
-	int n;
-	cin >> n;
-	while (n--) {
-		int a, b, g;
-		cin >> a; cin >> b;
-		
-		g = gcd(a, b);
-
-		cout << a*b/ g << endl;
-	}
-	return 0;
-}

@@ -6,7 +6,7 @@
 #include <algorithm>
 using namespace std;
 
-int color[20001]; // 방문 횟수
+int color[20001]; // 0: 방문x, 1:빨강, 2:파랑
 vector<int> a[20001];
 
 void dfs(int node, int c){

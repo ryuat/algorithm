@@ -33,19 +33,11 @@ int main(void){
         sort(a[i].begin(), a[i].end());
     }
     
-    int cnt = 1;
     int ans = 0;
     for(int i=1;i<=n;i++){
         if(check[i] == false){
             dfs(i);
             ans++;
-        }
-        if(cnt==0){
-            printf("%d 개", i);
-            break;
-        }
-        for(int i=1;i<=n;i++){
-            cnt += check[i];
         }
     }
     printf("%d\n", ans);

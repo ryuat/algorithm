@@ -30,8 +30,8 @@ int main(){
         scanf("%d", &n);
         for(int i=1;i<=n;i++){
             scanf("%d", &a[i]);
-            //  check[i] = 0;
-            // time[i] = 0;
+            check[i] = 0;
+            time[i] = 0;
         }
         int ans = 0;
         for(int i=1;i<=n;i++){

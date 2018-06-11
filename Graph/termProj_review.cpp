@@ -1,18 +1,15 @@
-/*
-  9466 텀 프로젝트
- */
 #include <iostream>
-#include <vector>
+#include <cstring>
 
 using namespace std;
-vector<int> v(100001);
+int v[100001];
 int check[100001];
 int lt[100001];
 
 int dfs(int a, int cnt, int t){
     if(check[a] > 0){
         if(lt[a] == t){
-            return cnt - check[a];
+            return cnt - check[a]; // 같은 시점 노드 재방문 => 사이클 생성, 총 길이 중 현재 노드의 cnt만큼 빼면 dfs 진행 중 생성된 사이클에 포함된 노드 수
         }
         return 0; // 다른 시점 노드를 방문, 탐색한 노드 중 사이클 노드 수는 0
     }
@@ -30,7 +27,7 @@ int main(){
     while(t--){
         memset(check, 0, sizeof(check));
         memset(lt, 0, sizeof(lt));
-        v.clear();
+        memset(lt, 0, sizeof(lt));
         
         int n;
         scanf("%d", &n);
@@ -49,3 +46,4 @@ int main(){
     
     return  0;
 }
+

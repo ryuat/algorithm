@@ -34,10 +34,6 @@ void bfs(int s_row, int s_col, int grp){
     }
 }
 
-void br_bfs(int s_row, int s_col, int c_grp){
-    queue<pair<int,int>> q;
-    
-}
 int main(){
     scanf("%d", &N);
     int min_dist = N*2*100; // 큰 수 임의 저장

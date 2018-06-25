@@ -1,7 +1,7 @@
 #include <iostream>
 
 /*
- 1992 쿼트트리
+  1992 쿼트트리
  */
 
 using namespace std;

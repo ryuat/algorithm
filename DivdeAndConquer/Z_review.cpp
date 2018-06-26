@@ -27,6 +27,7 @@ int solve(int x, int y, int n){ // 위치: x,y, 크기: 2^n
             // 1사분면, 2사분면의 칸 수(pow2(2*n-2)*2를 더해준다.
         }else{ // x,y가 4사분면일 경우
             return solve(x-pow2(n-1), y-pow2(n-1), n-1) + pow2(2*n-2)*3;
+            // 1사분면, 2사분면, 3사분면의 칸 수(pow2(2*n-2)*3를 더해준다.
         }
     }
 }

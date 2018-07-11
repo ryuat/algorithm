@@ -1,7 +1,12 @@
-#include <iostream>
+﻿#include <iostream>
 #include <string>
 /*
-11723 ����(���� �ʿ�)
+11723 집합
+std::ios_base::sync_with_stdio(false);
+를 명시할 경우, cin만 사용한다.
+
+
+수정 전 입출력 관련 시간초과가 나오는데, 원인은 아직 잘 모르겠다.
 */
 using namespace std;
 
@@ -11,7 +16,7 @@ bool check(int num) {
 	int a, b;
 	a = res & (1 << num);
 	b = (1 << num);
-	
+
 	return a == b;
 }
 void remove(int num) {
@@ -23,9 +28,7 @@ void add(int num) {
 
 int main() {
 	std::ios_base::sync_with_stdio(false);
-	/* 
-	  {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20}
-	*/
+
 
 	int n;
 	cin >> n;
@@ -35,28 +38,29 @@ int main() {
 		string op;
 		cin >> op;
 		int num;
-		
+
 		if (op == "add") {
-			scanf("%d", &num);
+			cin >> num;
 			add(num);
 			//printf("%d\n", res);
 		}
 		else if (op == "check") {
-			scanf("%d", &num);
+			cin >> num;
 			if (check(num)) {
 				printf("%d\n", 1);
 			}
 			else {
 				printf("%d\n", 0);
 			}
-		}else if(op=="remove") {
+		}
+		else if (op == "remove") {
 			int num;
-			scanf("%d", &num);
+			cin >> num;
 			remove(num);
 			//printf("%d\n", res);
 		}
 		else if (op == "toggle") {
-			scanf("%d", &num);
+			cin >> num;
 			if (check(num)) {
 				remove(num);
 			}
@@ -65,13 +69,13 @@ int main() {
 			}
 		}
 		else if (op == "all") {
-			res = (1<<21)-1;
+			res = (1 << 21) - 1;
 			//printf("%d\n", res);
 		}
 		else if (op == "empty") {
 			res = 0;
 		}
 	}
-	
+
 	return 0;
 }

@@ -29,7 +29,7 @@ public class Main{
 				int charN = str.charAt(i) - 'a'; // 현재 문자를 숫자로 변환
 				if(arr[charN] ==-1){ // 문자 charN이 아직 나타나지 않았다면
 					arr[charN] = i; // 현재 문자 charN의 위치 입력
-				}else if (i - arr[charN] > 1){
+				}else if (i - arr[charN] > 1){ // 현재 문자 charN의 위치 i와 최근 위치 arr[charN]의 거리가 2이상일 경우
 					status = false;
 					break;
 				}else { 

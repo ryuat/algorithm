@@ -20,25 +20,21 @@ public class Main{
 		for(int i=0;i<str.length();i++) {
 			arr[str.charAt(i) - 'A'] += 1;
 		}
-		char maxChar='A';
-		boolean q = false;
+		char maxChar= 0 + 'A'; // 'A'
+		
 		int maxCnt = -1;
+		
+		boolean result = true;
 		for(int i=0;i<arr.length;i++) {
 			if (arr[i] > maxCnt) {
 				maxCnt = arr[i];
 				maxChar = (char)(i + 'A');
+				result = false;
+			}else if(arr[i] == maxCnt) {
+				result = true;
 			}
 		}
-		int cnt = 0; // 최대값의 개수
-		for(int i=0;i<arr.length;i++) {
-			if(maxCnt == arr[i])
-				cnt++;
-		}
-		if(cnt>1) {
-			System.out.println('?');
-		}else {
-			System.out.println(maxChar);
-		}
-		
+
+		System.out.println(result ? "?":maxChar);
 	}
 }

@@ -11,16 +11,14 @@ public class Main{
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
 		int n = Integer.parseInt(br.readLine());
-		// 122~97 = 26개
-	
-		
-		// 배열을 -1로 초기화, 아직 한 번도 나타나지 않음을 의미
+		// 122~97 => 26개
 
 		
 		int resCnt = 0; // 그룹문자 개수
 		while(n-->0) {
 			int [] arr = new int[26];
 			
+			// 배열을 -1로 초기화, 아직 한 번도 나타나지 않음을 의미
 			for(int i=0;i<arr.length;i++) {
 				arr[i] = -1;
 			}
